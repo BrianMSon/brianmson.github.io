@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO Client</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+  
+    <p>
+        <input id="server" type="text" value="ws://127.0.0.1:20080" size="40">
+        <button onclick="openSocket()">Open</button>
+    </p>
+
+    <p>
+        <input id="message" type="text" size="40">
+        <button onclick="sendText()">Send Text</button>
+    </p>
+
+    <ul id="messages"></ul>
+
+    <script src="https://cdn.socket.io/socket.io-1.4.7.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	
+	<script>
+		var socket;
+        function openSocket() {
+
+			var url = document.getElementById('server').value;
+            log('opening: ' + url);
+			socket = io(url, {transports: ['websocket']});
+			
+			socket.on('connect', function () {
+				log("Connected!");
+			});
+			socket.on('message', function (data) {
+				log("on message:" + data);
+			});
+			socket.on('disconnect', function (sock) {
+				log("Disconnected! " + sock);
+			});
+        }
+
+        function sendText() {
+            var message = document.getElementById('message').value;
+			socket.emit('message', message);
+            log('sending: ' + message);
+        }
+
+        function log(message) {
+            var li = document.createElement('li');
+            li.innerHTML = message;
+            document.getElementById('messages').appendChild(li);
+        }
+
+	</script>
+  </body>
+</html>
+

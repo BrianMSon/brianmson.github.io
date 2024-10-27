@@ -1,0 +1,16 @@
+<!-- Search Google -->
+
+<center>
+
+<form method="get" action="http://www.google.co.kr/custom" target="_blank">
+<table align="center" bgcolor="#FF7000"  height="30">
+<tr><td nowrap="nowrap" valign="center" align="center" height=""><a href="http://www.google.com/"></a>
+<input name="q" type="text" value="" size="20" maxlength="200" align="top" width="" height="" hspace="" vspace="">
+</input>
+<input name="sa" type="image" value="°Ë»ö" src="img/btn_search.jpg" align="middle" hspace="" vspace="0" border="0"></td>
+</tr></table>
+</form>
+
+</center>
+
+<!-- Search Google -->

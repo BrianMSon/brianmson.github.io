@@ -1,0 +1,211 @@
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+
+<head>
+<title>금융 계산기</title>
+
+<script language="JavaScript">
+<!--
+
+//-----------------------------------------------------------//
+//   계산
+//-----------------------------------------------------------//
+function calculate()	// 적금
+{
+  var money = parseInt(document.inputData.inMoney.value);
+  var month = parseInt(document.inputData.inMonth.value);
+  var rate  = parseFloat(document.inputData.inRate.value);
+  
+  cal(money, month, rate);
+}
+
+//-----------------------------------------------------------//
+//   금액에 컴마 삽입
+//-----------------------------------------------------------//
+function addComma(instr)
+{
+  var str = instr + "";
+  var len = str.length;
+  var s1 = "",s2 = "";
+
+  if(len <= 3)
+    return str;
+  else
+  {
+    for(i = len-1 ; i >= 0; i--)
+      s1 += str.charAt(i);
+    for(i = len-1 ; i >= 0; i--)
+    {
+      s2 += s1.charAt(i);
+      if(i % 3 == 0 && i != 0) s2 += ",";
+    }
+    return s2;
+  }
+}
+
+//-----------------------------------------------------------//
+//   단리 적금 계산
+//-----------------------------------------------------------//
+function cal(money, month, rate)
+{
+  var principal = money * month;
+  var interest = ((principal + money) * (rate / 100) * month / 24);
+  
+  var strMoney = addComma(money);
+  var strPrincipal = addComma(principal);
+  var strInterest = addComma(Math.round(interest));
+  var strRecipt1050 = addComma(principal + interest - Math.round(interest * (10.5 / 100)));
+  var strRecipt1650 = addComma(principal + interest - Math.round(interest * (16.5 / 100)));
+  
+  document.getElementById('outMoney').innerHTML = strMoney;
+  document.getElementById('outMonth').innerHTML = (month) + " 개월";
+  document.getElementById('outRate').innerHTML  = (rate) + " %";
+  document.getElementById('outPrincipal').innerHTML = strPrincipal;
+  document.getElementById('outInterest').innerHTML = strInterest;
+  document.getElementById('outPrimeRateInterest1000').innerHTML = addComma(Math.round(interest * (10 / 100)));
+  document.getElementById('outPrimeRateInterest0050').innerHTML = addComma(Math.round(interest * (0.5 / 100)));
+  document.getElementById('outPrimeRateInterest1500').innerHTML = addComma(Math.round(interest * (15 / 100)));
+  document.getElementById('outPrimeRateInterest0150').innerHTML = addComma(Math.round(interest * (1.5 / 100)));
+  document.getElementById('outRecipt1050').innerHTML = strRecipt1050 + "<font color='#9999FF'>&nbsp;(10.5%)</font>";
+  document.getElementById('outRecipt1650').innerHTML = strRecipt1650 + "<font color='#9999FF'>&nbsp;(16.5%)</font>";
+  
+  document.getElementById('outScript').innerHTML =
+  "<div align='left'>&nbsp;&nbsp;&nbsp;고객께서 매월<font color='#3333FF'> " + strMoney  + "</font>원, "
+  + "<font color='#3333FF'>" + month + "</font>개월 동안 "
+  + "년 <font color='#3333FF'>" + rate + "%</font>로 납입하시면<br>"
+  + "&nbsp;&nbsp;&nbsp;원금 <font color='#3333FF'>" + strPrincipal + "</font>원, "
+  + "총이자 <font color='#3333FF'>" + strInterest + "</font>원으로 "
+  + "세금우대(10.5%) 공제하면 <font color='#3333FF'>" + strRecipt1050 + "</font>원을<br>"
+  + "&nbsp;&nbsp;&nbsp;일반세율 (16.5%)을 공제하면 <font color='#3333FF'>" + strRecipt1650 + "</font>원을 실수령하시게 됩니다.</div>";
+}
+</script>
+
+</head>
+
+<body bgcolor=white>
+
+<!-----------------------------
+ 입력부
+------------------------------->
+<form name="inputData" action="JavaScript:calculate()">
+<b><font color="#3FABC6">계산</font></b>
+<div align="left">
+<table border="0" width="540" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="100%">
+			<table border="0" width="400" cellspacing="1" cellpadding="4" bgcolor="#DBEFF4">
+				<tr>
+					<td width="100" align="center">불입금:</td>
+                    <td width="200" bgcolor="#F6F6F6" align="left">&nbsp;&nbsp;<input type="text" name="inMoney" value="100000" size="15"> 원</td>
+					<td width="100"></td>
+				</tr>
+				<tr>
+					<td width="100" align="center">납입개월:</td>
+					<td width="200" bgcolor="#F6F6F6" align="left">&nbsp;&nbsp;<input type="text" name="inMonth" value="12" size="15"> 개월</td>
+					<td width="100"></td>
+				</tr>
+				<tr>
+					<td width="100" align="center">적금금리:</td>
+					<td width="200" bgcolor="#F6F6F6" align="left">&nbsp;&nbsp;<input type="text" name="inRate" value="4.1" size="15"> %</td>
+					<td width="100">&nbsp;&nbsp;<input type="submit" name="cal" value="계산하기"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+
+
+<!-----------------------------
+   계산 결과 출력부
+------------------------------->
+<b><font color="#3FABC6">● 적금계산 결과</font></b>
+<div align="left">
+<table width="700" border="0" cellspacing="1" cellpadding="5">
+	<tr> 
+		<td bgcolor="#DBEFF4" rowspan="2"> 
+			<div style="margin-left:10" align="center">불입금</div>
+		</td>
+		<td bgcolor="#DBEFF4" rowspan="2"> 
+			<div align="center">불입기간</div>
+		</td>
+		<td bgcolor="#DBEFF4" rowspan="2"> 
+			<div align="center">적금금리</div>
+		</td>
+		<td bgcolor="#DBEFF4" rowspan="2"> 
+			<div align="center">원 금</div>
+		</td>
+		<td bgcolor="#DBEFF4" rowspan="2"> 
+			<div align="center">이 자</div>
+		</td>
+		<td bgcolor="#DBEFF4" colspan="2"> 
+			<div align="center">세금우대(공제후)</div>
+		</td>
+		<td bgcolor="#DBEFF4" colspan="2"> 
+			<div align="center">일반세율(공제후)</div>
+		</td>
+	</tr>
+	<tr> 
+		<td bgcolor="#E9F4F8"> 
+			<div align="center">10%</div>
+		</td>
+		<td bgcolor="#E9F4F8"> 
+			<div align="center">0.50%</div>
+		</td>
+		<td bgcolor="#E9F4F8"> 
+			<div align="center">15%</div>
+		</td>
+		<td bgcolor="#E9F4F8"> 
+			<div align="center">1.50%</div>
+		</td>
+	</tr>
+	<tr> 
+		<td bgcolor="#F6F6F6" rowspan="2"> 
+			<div id="outMoney" align="center">&nbsp;</div>
+		</td>
+		<td bgcolor="#F6F6F6" rowspan="2"> 
+			<div id="outMonth" align="center">&nbsp;개월</div>
+		</td>
+		<td bgcolor="#F6F6F6" rowspan="2"> 
+			<div id="outRate" align="center">&nbsp;%</div>
+		</td>
+		<td bgcolor="#F6F6F6" rowspan="2"> 
+			<div id="outPrincipal" align="center">&nbsp;</div>
+		</td>
+		<td bgcolor="#F6F6F6" rowspan="2"> 
+			<div id="outInterest" align="center">&nbsp;</div>
+		</td>
+		<td bgcolor="#F6F6F6"> 
+			<div id="outPrimeRateInterest1000" align="center">&nbsp;</div>
+		</td>
+		<td bgcolor="#F6F6F6"> 
+			<div id="outPrimeRateInterest0050" align="center">&nbsp;</div>
+		</td>
+		<td bgcolor="#F6F6F6"> 
+			<div id="outPrimeRateInterest1500" align="center">&nbsp;</div>
+		</td>
+		<td bgcolor="#F6F6F6"> 
+			<div id="outPrimeRateInterest0150" align="center">&nbsp;</div>
+		</td>
+	</tr>
+	<tr> 
+		<td bgcolor="#F6F6F6" colspan="2">
+			<div id="outRecipt1050" align="center"><font color="#9999FF">&nbsp;(10.5%)</font></div>
+		</td>
+		<td bgcolor="#F6F6F6" colspan="2">
+			<div id="outRecipt1650" align="center"><font color="#9999FF">&nbsp;(16.5%)</font></div>
+		</td>
+	</tr>
+	<tr> 
+		<td bgcolor="#DBEFF4" colspan="9" height="70">
+			<div id="outScript" align="center">&nbsp;</font></div>
+		</td>
+	</tr>
+</table>
+</div>
+
+
+
+</body>
+</html>
+

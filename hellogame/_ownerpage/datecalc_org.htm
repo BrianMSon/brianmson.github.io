@@ -1,0 +1,205 @@
+<html>
+
+<head>
+<title>날짜계산기</title>
+<META HTTP-EQUIV="keywords" name="keywords" content="www.event114.com,생일선물이벤트,결혼,기념일,팩케이지선물,패키지,기
+념일 알림,선물,선물용품,기프트,꽃다발,꽃바구니,꽃배달,케익배달,고급케익,케익,고급와인,와인,영상cd편지,영상편지,영상
+시,cd편지,기념액자,액자,감사장,카드,인터넷카드,인터넷편지,카드메일,쇼핑몰,쇼핑,쇼핑 몰,온라인 쇼핑,생일,사랑의 시,무료,이벤트아이디어,이벤트,문화공연,공연일정,
+전국축제,축제,연극,영화,무용,전시장,페스티발,배경음악,배경그림,세계의 풍경,음식점,레스토랑,식당,한식점,일식점,양식점,카
+페,미혼남녀미팅,찜이벤트,결혼용품장터,wedding anniversary,wedding,anniversary,anniversary gifts,gifts,wedding events,events,cakes,flowers,cd letters,cd,love 
+poems,poems,love musics,musics,wedding day,shopping mall">
+<META HTTP-EQUIV="description"  name="description" content="생일선물만을 위한 꾸러미 선물, 배경그림과 배경음악위로 편지와 사
+랑의 시가 흐르는 영상cd편지,생일선물 기념액자,재미있는 감사장,꽃,케익,와인,축하카드를 꾸러미로 준비. 인터넷카드편지,음식점과 카페안내,선물쇼
+핑,이벤트아이디어 게시판,배경그림,배경음악 모음,미혼남녀 미팅소개,결혼용품 장터등.[생일선물 선물포탈]">
+<meta name="generator" content="Namo WebEditor v5.0">
+<style type="text/css">
+<!--
+a { color:silver; text-decoration:none; }
+a:link { font-family:굴림,sans-serif; font-style:normal; font-weight:normal; color:blue; text-decoration:none; }
+a:visited { font-family:굴림,sans-serif; font-style:normal; font-weight:normal; color:fuchsia; text-decoration:none; }
+:active { font-family:굴림,sans-serif; font-style:normal; font-weight:normal; color:red; text-decoration:none; }
+:hover { font-family:굴림,sans-serif; font-weight:normal; }
+-->
+</style>
+<style type="text/css">
+</style>
+<script language="javascript">
+function calcu() {
+	m_year=eval(document.mmm.m_year.value);
+	m_month=eval(document.mmm.m_month.value);
+	m_day=eval(document.mmm.m_day.value);
+	if (m_year=="") {
+		alert("처음 만난 해를 적어 주십시오..!!");
+		document.mmm.m_year.focus();
+		return true;
+	}
+	else if (m_year<1900) {
+		alert("날짜 계산은 1900년 이후부터 가능합니다...\n 죄송합니당...ㅜ.ㅜ;");
+	}
+	if (m_month=="" || (m_month<1 || m_month > 12)) {
+		alert("처음 만난 월을 적어 주십시오..!!");
+		document.mmm.m_month.focus();
+		return true;
+	}
+	if (m_day=="" || (m_day<1 || m_day > 31)) {
+		alert("처음 만난 날을 적어 주십시오..!!");
+		document.mmm.m_day.focus();
+		return true;
+	}
+	var Meet = new Date(m_year,m_month-1,m_day);
+	var M_now = new Date();
+
+	distencet=M_now.getTime()-Meet.getTime();
+	document.mmm.resul.value=Math.floor((1+distencet/(1000*60*60*24)));
+}
+function calcu_plan() {
+	m_year=eval(document.mmm.m_year.value);
+	m_month=eval(document.mmm.m_month.value);
+	m_day=eval(document.mmm.m_day.value);
+	if (m_year=="") {
+		alert("처음 만난 해을 적어 주십시오..!!");
+		document.mmm.m_year.focus();
+		return true;
+	}
+	else if (m_year<1900) {
+		alert("날짜 계산은 1900년 이후부터 가능합니다...\n 죄송합니당...ㅜ.ㅜ;");
+	}
+	if (m_month=="" || (m_month<1 || m_month > 13)) {
+		alert("처음 만난 월을 적어 주십시오..!!");
+		document.mmm.m_month.focus();
+		return true;
+	}
+	if (m_day=="" || (m_day<1 || m_day > 31)) {
+		alert("처음 만난 날을 적어 주십시오..!!");
+		document.mmm.m_day.focus();
+		return true;
+	}
+
+	plann=eval(document.mmm.plann.value);
+	if (plann=="" || plann<1) {
+		alert("기간을 적어 주십시오..!!");
+		document.mmm.plann.focus();
+		return true;
+	}
+	var dayStr = m_month+"-"+m_day+"-"+m_year;
+	var Meet = new Date(dayStr);
+	Meet = Meet;
+	var annitime = Meet.getTime()+plann*1000*3600*24-1	
+	var anniday = new Date();
+	anniday.setTime(annitime);
+	document.mmm.p_month.value=anniday.getMonth()+1;
+	document.mmm.p_year.value=(anniday.getYear()<100)?"19"+anniday.getYear():anniday.getYear();
+	document.mmm.p_date.value=anniday.getDate();
+	document.mmm.dow.value=dow[anniday.getDay()];
+}
+
+var dow = new Array(7);
+dow[0] = "일";
+dow[1] = "월";
+dow[2] = "화";
+dow[3] = "수";
+dow[4] = "목";
+dow[5] = "금";
+dow[6] = "토";
+</script>
+<script language="JavaScript">
+<!--
+
+
+// -->
+</script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+
+            <table cellpadding="0" cellspacing="0" width="390" style=border-top-color:silver; border-bottom-color:silver;" bgcolor="white" bordercolorlight="silver">
+                <tr>
+                    <td width="384"><table border="0" cellpadding="0" cellspacing="0" onload="javascript:document.mmm.m_year.focus()" width="390" style="border-width:1; border-style:outset;" bgcolor="#F9F5F3">
+<form name="mmm">
+<tr>
+	<td height="40" width="390" colspan="2">
+                                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+<table border="1" bordercolor="black" cellpadding="0" cellspacing="0" width="180" align="center" style="border-style:none;" bgcolor="#cccccc">
+                <tr>
+                    <td width="180" height="20">
+		        <p><span align="center" style="font-size:9pt;"><font color="#e2007f" face="굴림"><marquee direction="left" scrollamount="2" loop="-1"><b>
+<script language="JavaScript">
+<!--
+
+function printDate() {
+var today = new Date();
+var year = today.getYear(); 
+if (year < 1900) year+=1900;
+var month = today.getMonth();
+var date = today.getDate();
+document.write("오늘은 "+year+ "년 "  + (month+1) + "월 " + date + "일 " + dow[today.getDay()] + "요일 입니다.");
+}
+printDate()
+// -->
+</script>
+     
+                       </marquee></b></font></span></p>
+                    </td>
+                </tr>
+            </table>
+             <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><br>
+	    </td>
+</tr>
+
+<tr>
+	<td height="30" width="324"><p align="center"><span style="font-size:9pt;"><font face="굴림">처음 만난 날 : 
+                            &nbsp;<input type="text" name="m_year" value="" size="4" style="color:rgb(226,0,127); background-color:rgb(250,250,236); border-width:1; border-style:inset;"> 
+                                            년&nbsp;
+	<input type="text" name="m_month" value="" size="2" style="color:rgb(226,0,127); background-color:rgb(250,250,236); border-width:1; border-style:inset;"> 월&nbsp;
+	<input type="text" name="m_day" value="" size="2" style="color:rgb(226,0,127); background-color:rgb(250,250,236); border-width:1; border-style:inset;"> 일</font></span></p></td>
+	<td height="30" width="66">
+                                            <p>&nbsp;</p>
+					   </td>
+</tr>
+<tr>
+	<td width="390" colspan="2" align="center" valign="bottom"><p align="center">
+	&nbsp;</p></td>
+</tr>
+<tr>
+	<td height="35" width="390" colspan="2" align="center" valign="middle"><p align="center">
+<input type="button" value="오늘은 몇일째일까?" onclick="javascript:calcu()" name="계산하기" style="font-family:굴림,serif; font-style:normal; font-weight:normal; font-size:10pt; color:rgb(250,250,236); text-align:center; text-decoration:none; background-color:rgb(108,122,210); padding-top:2; border-style:ridge;"></p></td>
+</tr>
+<tr>
+	<td height="30" width="390" colspan="2">
+                                            <p align="center"><span style="font-size:10pt;">&nbsp;</span><span style="font-size:9pt;">오늘은 그녀(이)와 만난 지&nbsp;
+	<input type="text" name="resul" value="" size="7" maxlength="7" style="font-family:굴림,serif; font-style:normal; font-weight:bold; font-size:14pt; color:rgb(226,0,127); text-align:center; text-decoration:blink; background-color:rgb(250,250,236); border-width:1px; border-style:inset;"> 
+                                            일째 되는 날입니다.</span></td>
+</tr>
+<tr>
+	<td width="390" height="20" colspan="2">&nbsp;</td>
+</tr>
+<tr>
+	<td height="35" width="390" colspan="2"><p align="center"><span style="font-size:9pt;">&nbsp;그녀(이)를 만난 후로 
+	<input type="text" name="plann" value="" size="5" style="color:rgb(226,0,127); background-color:rgb(250,250,236); border-width:1; border-style:inset;"> 일째 되는 날은?</span></p></td>
+</tr>
+<tr>
+	<td height="35" width="390" colspan="2">
+<p align="center"><span style="font-size:10pt;"><input type="button" value=" 그 날은 언제일까? " onclick="javascript:calcu_plan()" style="font-family:굴림,serif; font-size:10pt; color:rgb(250,250,236); text-decoration:blink; background-color:rgb(108,122,210); padding-top:2; border-style:ridge;"></span></p>	</td>
+</tr>
+<tr>
+	<td height="50" width="390" colspan="2"><p align="center">
+        <span style="font-size:10pt;"><input type="text" name="p_year" value="" size="4" maxlength="4" style="font-family:굴림,serif; font-weight:bold; font-size:14pt; color:rgb(226,0,127); text-align:center; background-color:rgb(250,250,236); border-width:1px; border-style:inset;"> 
+                                            년&nbsp;
+	<input type="text" name="p_month" value="" size="2" maxlength="2" style="font-family:굴림,serif; font-weight:bold; font-size:14pt; color:rgb(226,0,127); text-align:center; background-color:rgb(250,250,236); border-width:1px; border-style:inset;"> 
+                                            월&nbsp;
+	<input type="text" name="p_date" value="" size="2" maxlength="2" style="font-family:굴림,serif; font-weight:bold; font-size:14pt; color:rgb(226,0,127); text-align:center; background-color:rgb(250,250,236); border-width:1px; border-style:inset;"> 
+                                            일&nbsp;&nbsp;
+	<input type="text" name="dow" value="" size="2" maxlength="2" style="font-family:굴림,serif; font-weight:bold; font-size:14pt; color:rgb(226,0,127); text-align:center; background-color:rgb(250,250,236); border-width:1px; border-style:inset;"> 				    
+					    요일 입니다.<br></span></p>
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><input type=reset value=RESET style="color:rgb(250,250,236); background-color:rgb(108,122,210); padding-top:3; border-style:ridge;"><br><br>
+</td>
+</tr>
+</form>
+</table>
+	    
+        </td>
+    </tr>
+    </table>
+    <p style="border-top-color:silver;">&nbsp;</p>
+</body>
+</html>
