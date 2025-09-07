@@ -3,46 +3,46 @@
 # 경력기술
 
 ## (주)엔스텝 (2023년 5월 ~ 2024년 1월, 2024년 8월 ~ 2025년 3월)
-- **Server Programmer on Mobile Action RPG (Xeno Dragon)**
-	- Optimization, Stabilization  
-	- Improved Kestrel Thread Structure  
-	- Developed MySQL DB Comparison and Patch System (Batch, Shell, GoLang)  
-	- Developed Monitoring System (go-telegram-bot)  
+- **모바일 액션 RPG (Xeno Dragon) 서버 프로그래머**
+	- 최적화, 안정화
+	- Kestrel 스레드 구조 개선
+	- MySQL DB 비교 및 패치 시스템 개발 (Batch, Shell, GoLang)
+	- 모니터링 시스템 개발 (go-telegram-bot)
 
 ## (유)에이스톰 (2017년 3월 ~ 2023년 4월)
-- **Server Programmer on PC Action MORPG (NightmareBreaker, NightWalker)**
-	- Developed Game Contents  
-	- Code Optimization, Stabilization, Coverage Test  
+- **PC 액션 MORPG (NightmareBreaker, 나이트워커) 서버 프로그래머**
+	- 게임 콘텐츠 개발
+	- 코드 최적화, 안정화, 커버리지 테스트
 
 ## (주)게임빌 (현, 컴투스홀딩스) (2014년 5월 ~ 2017년 2월)
-- **Server Programmer on Mobile Action RPG (Zenonia Online)**
-	- Developed Channel Server, Cache, Location and Friends Server  
-	- Redis, Memcached, Build Automation, CCU Graph Tool, Deployment Tool  
+- **모바일 액션 RPG (제노니아 온라인) 서버 프로그래머**
+	- 채널 서버, 캐시, 친구 서버 개발
+	- Redis, Memcached, 빌드 자동화, CCU 그래프 도구, 배포 도구
 
 ## (주)스튜디오이엑스 (2011년 3월 ~ 2014년 4월)
-- **Server Programmer on Action MORPG (Heroes of the Pantheon)**
-	- Developed Login Server, Manager Server and DB Agent  
+- **액션 MORPG (Heroes of the Pantheon) 서버 프로그래머**
+	- 로그인 서버, 매니저 서버 및 DB 에이전트 개발
 
 ## (주)엔플루토 (2008년 9월 ~ 2011년 1월)
-- **Main Server Programmer on MMORPG (Call Of Chaos)**
-	- Developed Server Group (Login Server, Game Server) Structure  
-	- Closed-beta, Open-beta and Commercial Service  
+- **MMORPG (콜오브카오스) 메인 서버 프로그래머**
+	- 서버 그룹 (로그인 서버, 게임 서버) 구조 개발
+	- 클로즈 베타, 오픈 베타 및 상용 서비스
 
 ## (주)드래곤플라이 (2007년 7월 ~ 2008년 9월)
-- **Server Programmer on FPS Development Project**
-	- Protocol Design and Implementation  
-	- Dummy Client Design and Implementation (MFC)  
-	- Network Load Test Client Implementation  
-	- Game Logic Programming  
+- **FPS 개발 프로젝트 서버 프로그래머**
+	- 프로토콜 설계 및 구현
+	- 더미 클라이언트 설계 및 구현 (MFC)
+	- 네트워크 부하 테스트 클라이언트 구현
+	- 게임 로직 프로그래밍
 
 ## (주)위메이드 엔터테인먼트 (2003년 9월 ~ 2007년 5월)
-- **Server Programmer on MMORPG (The Legend of Mir II) Live Team**
-	- Maintenance of Whole Server (Login Server, Game Server)  
-	- Game DB Scheme Design and DB Maintenance  
-	- Localizing Overseas Server  
-	- Ported Relay Server from Win32 to Linux Platform  
-	- Weekly Game Content Updates  
-	- Game Logic Programming  
+- **MMORPG (미르의 전설 2) 라이브 팀 서버 프로그래머**
+	- 전체 서버 (로그인 서버, 게임 서버) 유지보수
+	- 게임 DB 스키마 설계 및 DB 유지보수
+	- 해외 서버 현지화
+	- Win32 릴레이 서버를 Linux 플랫폼으로 포팅
+	- 주간 게임 콘텐츠 업데이트
+	- 게임 로직 프로그래밍
 
 ---
 
@@ -56,21 +56,21 @@
 - SVN, Git, Perforce
 
 **기타 관련 기술**
-- Unity3D, Godot, JavaScript, PHP, ASP, Excel, PowerPoint, etc.  
+- Unity3D, Godot, JavaScript, PHP, ASP, Excel, PowerPoint, 등.
 - 영어 독해 및 회화 중급 수준
 
 ---
 
 # 학력
 
-- **Master Course in Electronics at Kook-min University**  
-  *Design and Implementation of MMO Server with k-queue on FreeBSD*  
+- **국민대학교 전자공학과 석사**
+  *FreeBSD에서 k-queue를 이용한 MMO 서버 설계 및 구현*
 
-- **Bachelor Course in Electronics at Kook-min University**  
-  *Navigation Application with Vector Map, Cell Phone Signal Analyzing Tool*  
+- **국민대학교 전자공학과 학사**
+  *벡터맵을 이용한 네비게이션 앱, 휴대폰 신호 분석 툴*
 
 ---
 
 # 병역
 
-- 육군 학사장교 중위 만기 전역 (1999 ~ 2002)  
+- 육군 학사장교 중위 만기 전역 (1999 ~ 2002)
