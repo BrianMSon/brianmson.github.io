@@ -15,12 +15,12 @@
 	- Code Optimization, Stabilization, Coverage Test  
 
 ## GameVil Co., Ltd. (May 2014 – Feb 2017)
-- **Server Programmer on Mobile Action RPG**
+- **Server Programmer on Mobile Action RPG (Zenonia Online)**
 	- Developed Channel Server, Cache, Location and Friends Server  
 	- Redis, Memcached, Build Automation, CCU Graph Tool, Deployment Tool  
 
 ## StudioEX Co., Ltd. (Mar 2011 – Apr 2014)
-- **Server Programmer on Action MORPG**
+- **Server Programmer on Action MORPG (Heroes of the Pantheon)**
 	- Developed Login Server, Manager Server and DB Agent  
 
 ## NPLUTO Co., Ltd. (Sep 2008 – Jan 2011)
