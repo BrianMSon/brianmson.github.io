@@ -3,38 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Resume</title>
-  <!-- marked.js 라이브러리 불러오기 -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- markdown-it 라이브러리 -->
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+  <!-- GitHub 스타일 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+      background: #f6f8fa;
+    }
+    .markdown-body {
       max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #333;
-    }
-    h1, h2, h3 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      overflow-x: auto;
-    }
-    code {
-      background: #eee;
-      padding: 2px 4px;
-      border-radius: 3px;
+      padding: 30px;
+      background: #fff;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <div id="content">Loading resume...</div>
+  <article id="content" class="markdown-body">
+    Loading resume...
+  </article>
 
   <script>
-    // resume.md 파일 불러와서 HTML로 변환
+    // resume.md 파일 불러오기
     fetch("resume.md")
       .then(response => {
         if (!response.ok) {
@@ -43,10 +39,16 @@
         return response.text();
       })
       .then(text => {
-        document.getElementById("content").innerHTML = marked.parse(text);
+        const md = window.markdownit({
+          html: true,
+          linkify: true,
+          typographer: true
+        });
+        document.getElementById("content").innerHTML = md.render(text);
       })
       .catch(error => {
-        document.getElementById("content").innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+        document.getElementById("content").innerHTML =
+          `<p style="color:red;">Error: ${error.message}</p>`;
       });
   </script>
 </body>
