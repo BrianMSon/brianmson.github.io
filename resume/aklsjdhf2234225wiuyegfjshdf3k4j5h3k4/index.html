@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Resume</title>
-  <!-- marked.js 라이브러리 불러오기 -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body {
@@ -15,7 +14,7 @@
       color: #333;
     }
     h1, h2, h3 {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 거의 안 보이는 연한 선 */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       padding-bottom: 4px;
     }
     pre {
@@ -28,6 +27,25 @@
       padding: 2px 4px;
       border-radius: 3px;
     }
+    .lang-buttons {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-end; /* 오른쪽 정렬 */
+      gap: 10px; /* 버튼 사이 간격 */
+    }
+    .lang-buttons button {
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .lang-buttons button.active {
+      background: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
   </style>
 </head>
 <body>
@@ -39,9 +57,13 @@
   <div id="content">Loading resume...</div>
 
   <script>
-    // 공통 로딩 함수
+    function setActiveButton(lang) {
+      document.getElementById("btnKor").classList.toggle("active", lang === "ko");
+      document.getElementById("btnEng").classList.toggle("active", lang === "en");
+    }
+
     function loadResume(lang = "ko") {
-      const file = lang === "en" ? "resume.md" : "resume_ko.md";
+      const file = lang === "en" ? "resume_en.md" : "resume_ko.md";
 
       fetch(file)
         .then(response => {
@@ -52,6 +74,8 @@
         })
         .then(text => {
           document.getElementById("content").innerHTML = marked.parse(text);
+          localStorage.setItem("resumeLang", lang); // 선택한 언어 저장
+          setActiveButton(lang); // 버튼 상태 업데이트
         })
         .catch(error => {
           document.getElementById("content").innerHTML =
@@ -59,12 +83,13 @@
         });
     }
 
-    // 버튼 이벤트 연결
+    // 버튼 이벤트
     document.getElementById("btnKor").addEventListener("click", () => loadResume("ko"));
     document.getElementById("btnEng").addEventListener("click", () => loadResume("en"));
 
-    // 기본
-    loadResume("en");
+    // 저장된 언어 불러오기 (없으면 ko 기본값)
+    const savedLang = localStorage.getItem("resumeLang") || "ko";
+    loadResume(savedLang);
   </script>
 </body>
 </html>
