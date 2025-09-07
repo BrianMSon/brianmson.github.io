@@ -31,23 +31,40 @@
   </style>
 </head>
 <body>
+  <div class="lang-buttons">
+    <button id="btnKor">KOR</button>
+    <button id="btnEng">ENG</button>
+  </div>
+
   <div id="content">Loading resume...</div>
 
   <script>
-    // resume.md 파일 불러와서 HTML로 변환
-    fetch("resume.md")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Markdown file not found");
-        }
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById("content").innerHTML = marked.parse(text);
-      })
-      .catch(error => {
-        document.getElementById("content").innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
-      });
+    // 공통 로딩 함수
+    function loadResume(lang = "ko") {
+      const file = lang === "en" ? "resume.md" : "resume_ko.md";
+
+      fetch(file)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(file + " not found");
+          }
+          return response.text();
+        })
+        .then(text => {
+          document.getElementById("content").innerHTML = marked.parse(text);
+        })
+        .catch(error => {
+          document.getElementById("content").innerHTML =
+            `<p style="color:red;">Error: ${error.message}</p>`;
+        });
+    }
+
+    // 버튼 이벤트 연결
+    document.getElementById("btnKor").addEventListener("click", () => loadResume("ko"));
+    document.getElementById("btnEng").addEventListener("click", () => loadResume("en"));
+
+    // 기본
+    loadResume("en");
   </script>
 </body>
 </html>
