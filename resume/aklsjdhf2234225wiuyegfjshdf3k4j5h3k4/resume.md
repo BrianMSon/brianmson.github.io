@@ -48,12 +48,11 @@
 
 # Skills
 
-- C language since 1994  
-- C++ since 1998 (UNIX, LINUX, FreeBSD, Win32), MFC, STL  
-- Go, C#, Delphi, BASIC, Assembly language  
+- C/C++, C#, ASP.NET, GO, Etc (MFC, STL, Delphi, BASIC, ASM)
 - Network Programming (IOCP, e-poll, k-queue)
-- MS-SQL, MySQL, Redis, MongoDB
-- Multi-thread Programming  
+- RDBMS (MySQL, MS-SQL), NoSQL(REDIS, MongoDB, Memcached)
+- LINUX, Multi-thread Programming
+- Web Programming (PHP, Python, Flask, Node.js, React)
 - SVN, Git, Perforce
 
 **Other Relevant Skills**  
