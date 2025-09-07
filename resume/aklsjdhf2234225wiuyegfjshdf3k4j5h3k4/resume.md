@@ -64,10 +64,10 @@
 # Education
 
 - **Master Course in Electronics at Kook-min University**
-  *Design and Implementation of MMO Server with k-queue on FreeBSD*
+	- *Design and Implementation of MMO Server with k-queue on FreeBSD*
 
 - **Bachelor Course in Electronics at Kook-min University**
-  *Navigation Application with Vector Map, Cell Phone Signal Analyzing Tool*
+	- *Navigation Application with Vector Map, Cell Phone Signal Analyzing Tool*
 
 ---
 
